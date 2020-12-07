@@ -9,10 +9,10 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-    template: './public/index.html',
-    filename: './index.html',
-    title: 'project-x',
-  }),
+      template: './public/index.html',
+      filename: './index.html',
+      title: 'project-x',
+    }),
   ],
   resolve: {
     extensions: ['.jsx', '.js', '.json', '.css'],
@@ -47,12 +47,12 @@ module.exports = {
     compress: true,
     port: 9000,
     open: true,
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     // filename: '[name].bundle.js',
     filename: 'bundle.js',
     publicPath: '/',
-  }
-}
+  },
+};
