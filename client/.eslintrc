@@ -22,6 +22,18 @@
       "version": "detect"
     },
     "import/resolver": "webpack",
-    "import/parser": "babel-eslint"
+    "import/parser": "babel-eslint",
+  },
+  "rules": {
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
   }
 }
