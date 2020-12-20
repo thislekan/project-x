@@ -1,10 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.jsx',
+  entry: './src/index.tsx',
   devtool: 'inline-source-map',
   plugins: [
     new CleanWebpackPlugin(),
@@ -15,7 +16,7 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: ['.jsx', '.js', '.json', '.css'],
+    extensions: ['.tsx', '.jsx', '.ts', '.js', '.json', '.css'],
   },
   module: {
     rules: [
@@ -29,8 +30,20 @@ module.exports = {
         test: /\.jsx$/,
       },
       {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        test: /\.tsx?$/,
+        use: ['ts-loader'],
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          process.env.NODE_ENV !== 'production'
+            ? 'style-loader'
+            : MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+
+        ],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
