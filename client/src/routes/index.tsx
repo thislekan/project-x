@@ -1,17 +1,22 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
-import TestComp from '../components';
-import Login from '../components/pages/auth';
+import NavBar from '../components/molecules/navBar';
+import LandingPage from '../components/pages/landingPage';
+import RestrictedPages from './restricted';
+import ProtectedRoutes from './protectedRoutes';
 
 const Routes = () => (
-    <BrowserRouter>
-      <div>
-        <Switch>
-          <Route path="/" component={TestComp} exact/>
-          <Route path="/login" component={Login} exact/>
-        </Switch>
-      </div>
-    </BrowserRouter>
+  <BrowserRouter>
+    <div>
+      <NavBar />
+      <Switch>
+        <Route path="/" component={LandingPage} exact/>
+        <ProtectedRoutes isTrue>
+          <RestrictedPages />
+        </ProtectedRoutes>
+      </Switch>
+    </div>
+  </BrowserRouter>
 );
 
 export default Routes;

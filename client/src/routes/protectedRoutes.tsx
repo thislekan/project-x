@@ -4,11 +4,11 @@ import userAuth from '../utils/userAuth';
 
 type Props = {
   children: any,
-  foo: string,
+  isTrue?: boolean,
 }
 
 const Protected = (props: Props) => {
-  if (userAuth.authenticate()) return <>{props.children}</>;
+  if (userAuth.authenticate() || props.isTrue) return <>{props.children}</>;
   return <Redirect to="/" />;
 };
 
