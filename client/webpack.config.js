@@ -2,9 +2,9 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+// const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
-const { NODE_ENV } = process.env;
+// const { NODE_ENV } = process.env;
 
 module.exports = {
   mode: "development",
@@ -18,7 +18,7 @@ module.exports = {
       filename: "./index.html",
       title: "project-x",
     }),
-    NODE_ENV !== "production" && new BundleAnalyzerPlugin(),
+    // NODE_ENV !== "production" && new BundleAnalyzerPlugin(),
   ],
   resolve: {
     extensions: [".tsx", ".jsx", ".ts", ".js", ".json", ".css", ".scss"],
