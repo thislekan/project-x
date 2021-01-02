@@ -1,7 +1,7 @@
-import React from 'react';
-import { Anchor } from '../../../atoms/texts';
-import { SimpleButton } from '../../../atoms/buttons';
-import { FlexRow } from '../../../atoms/wrappers';
+import React from "react";
+import { Anchor } from "../../../atoms/texts";
+import { SimpleButton } from "../../../atoms/buttons";
+import { FlexRow } from "../../../atoms/wrappers";
 
 const TopNav = () => (
   <div className="topnav-content">
@@ -10,8 +10,12 @@ const TopNav = () => (
         <Anchor text="Project-x" route="/" />
       </div>
       <div className="topnav-content__wrapper__mid-div">
-        <Anchor text="Inspiration" route="/inspiration" />
-        <Anchor text="Credits" route="/credits" />
+        <Anchor
+          text="Inspiration"
+          route="/inspiration"
+          addClass="inspiration"
+        />
+        <Anchor text="Credits" route="/credits" addClass="credits" />
       </div>
       <div className="topnav-content__wrapper__right-div">
         <SimpleButton content="Log in" />

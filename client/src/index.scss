@@ -1,5 +1,8 @@
+@import "./styles/reset.scss";
+@import "./styles/variables.scss";
+@import "./styles/globals.scss";
 @import "./components/atoms/index.scss";
 @import "./components/molecules/index.scss";
 @import "./components/organisms/index.scss";
-@import "./components/pages/index.scss";
 @import "./components/templates/index.scss";
+@import "./components/pages/index.scss";

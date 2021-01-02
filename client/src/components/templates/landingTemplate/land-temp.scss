@@ -1,0 +1,42 @@
+.land-temp {
+  height: 100%;
+
+  &__wrapper {
+    &__sect1 {
+      height: calc(100vh - 5rem);
+      padding: 25% 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .bg-title,
+      .bracket-txt {
+        margin-bottom: 1rem;
+      }
+
+      .bg-title {
+        font-size: clamp(3rem, 4vw, 8vw);
+        font-family: $title-text;
+      }
+
+      .green-txt {
+        color: map-get($colors, brand-green);
+        font-family: $title-text;
+        font-weight: bold;
+        font-size: clamp(2rem, 3vw, 5vw);
+      }
+
+      .powered {
+        margin-left: 1rem;
+      }
+
+      .login-btn {
+        height: 4rem;
+        width: 12rem;
+        border-radius: 0.2rem;
+        background: map-get($colors, brand-green);
+        border: 1px solid map-get($colors, brand-green);
+      }
+    }
+  }
+}

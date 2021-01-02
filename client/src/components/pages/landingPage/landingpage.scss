@@ -1,0 +1,8 @@
+.landing {
+  margin-top: 5rem;
+  background-color: map-get($colors, brand-black);
+  color: map-get($colors, brand-white);
+  min-height: calc(100vh - 5rem);
+  padding: $mobile;
+  // overscroll-behavior-y: none;
+}

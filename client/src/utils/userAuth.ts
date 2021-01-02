@@ -1,4 +1,4 @@
-const token = sessionStorage.getItem('token');
+const token = sessionStorage.getItem("token");
 const userAuth = {
   isAuthenticated: false,
   authenticate: () => {
@@ -6,7 +6,7 @@ const userAuth = {
     return userAuth.isAuthenticated;
   },
   signOut: () => {
-    if (token) sessionStorage.removeItem('token');
+    if (token) sessionStorage.removeItem("token");
   },
 };
 

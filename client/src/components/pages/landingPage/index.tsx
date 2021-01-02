@@ -1,6 +1,12 @@
-import React from 'react';
-import LandingTemplate from '../../templates/landingTemplate';
+import React from "react";
+import LandingTemplate from "../../templates/landingTemplate";
 
-const App = () => (<LandingTemplate />);
+const App = () => (
+  <div className="landing">
+    <div className="landing__wrapper">
+      <LandingTemplate />
+    </div>
+  </div>
+);
 
 export default App;
