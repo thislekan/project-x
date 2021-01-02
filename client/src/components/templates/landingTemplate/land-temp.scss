@@ -31,8 +31,8 @@
       }
 
       .login-btn {
-        height: 4rem;
-        width: 12rem;
+        height: clamp(4rem, 5vh, 10vh);
+        width: clamp(12rem, 10vw, 20vw);
         border-radius: 0.2rem;
         background: map-get($colors, brand-green);
         border: 1px solid map-get($colors, brand-green);
