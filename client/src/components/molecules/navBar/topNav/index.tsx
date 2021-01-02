@@ -10,11 +10,7 @@ const TopNav = () => (
         <Anchor text="Project-x" route="/" />
       </div>
       <div className="topnav-content__wrapper__mid-div">
-        <Anchor
-          text="Inspiration"
-          route="/inspiration"
-          addClass="inspiration"
-        />
+        <Anchor text="Inspiration" route="/inspiration" addClass="inspiration" />
         <Anchor text="Credits" route="/credits" addClass="credits" />
       </div>
       <div className="topnav-content__wrapper__right-div">
