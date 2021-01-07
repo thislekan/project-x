@@ -19,7 +19,11 @@ const LandingTemplate = () => {
               <Paragraph text="POWERED BY SPOTIFY" addClass="powered" />
             </FlexRow>
 
-            <SimpleButton addClass="login-btn" content="LOG IN WITH SPOTIFY" onClick={loginClick} />
+            <SimpleButton
+              addClass="login-btn"
+              content="LOG IN WITH SPOTIFY"
+              onClick={loginClick}
+            />
           </FlexColumn>
         </section>
       </div>
