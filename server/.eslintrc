@@ -1,31 +1,27 @@
 {
-  "root": true,
-  "parser": "@typescript-eslint/parser",
-  "env": {"node": true, "browser": true},
   "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:import/typescript"
+    "airbnb-base",
+    "plugin:prettier/recommended"
   ],
-  "plugins": ["@typescript-eslint"],
+  "plugins": [
+    "prettier"
+  ],
   "rules": {
-    "array-bracket-spacing":"error",
-    "no-await-in-loop":"error",
-    "accessor-pairs":"error",
-    "no-alert":"error",
-    "no-dupe-args":"error",
-    "no-dupe-keys":"error",
-    "no-else-return":"error",
-    "no-empty":"error",
-    "no-undef":"error",
-    "no-unreachable":"error",
-    "array-callback-return":"error",
-    "dot-notation":"error",
-    "consistent-return":"error",
-    "block-scoped-var":"error"
+    "prettier/prettier": "error"
+  },
+  "parserOptions": {
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
+  "env": {
+    "node": true,
+    "es6": true,
+    "es2020": true,
+    "browser": true
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
   }
 }
