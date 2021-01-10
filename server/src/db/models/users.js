@@ -1,5 +1,5 @@
 import { Model, DataTypes, Sequelize } from "sequelize";
-import config from "../../config";
+import config from "config";
 
 const sequelize = new Sequelize(`${config.DATABASE_URL}`);
 
