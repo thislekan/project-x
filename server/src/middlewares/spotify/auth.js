@@ -39,7 +39,6 @@ const postToToken = async (options, res, next) => {
   try {
     const apiCall = await fetch(url, { method, body: params, headers });
     const feedback = await apiCall.json();
-    console.log({ feedback });
     const { access_token, refresh_token } = feedback;
 
     if (access_token && refresh_token) {
