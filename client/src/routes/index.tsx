@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import NavBar from "../components/molecules/navBar";
 import LandingPage from "../components/pages/landingPage";
+import LoggedInUser from "../components/pages/loggedIn";
 import RestrictedPages from "./restricted";
 import ProtectedRoutes from "./protectedRoutes";
 
@@ -11,7 +12,12 @@ const Routes = () => (
       <NavBar />
       <Switch>
         <Route path="/" component={LandingPage} exact />
-        <ProtectedRoutes isTrue>
+        <Route
+          path="/loggedIn/:access_token/:refresh_token"
+          component={LoggedInUser}
+          exact
+        />
+        <ProtectedRoutes>
           <RestrictedPages />
         </ProtectedRoutes>
       </Switch>

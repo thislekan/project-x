@@ -1,12 +1,15 @@
-const token = sessionStorage.getItem("token");
+const access_token = sessionStorage.getItem("access_token");
+const refresh_token = sessionStorage.getItem("refresh_token");
+
 const userAuth = {
   isAuthenticated: false,
   authenticate: () => {
-    if (token) userAuth.isAuthenticated = true;
+    if (access_token) userAuth.isAuthenticated = true;
     return userAuth.isAuthenticated;
   },
+  refreshUser: () => console.log({ refresh_token }),
   signOut: () => {
-    if (token) sessionStorage.removeItem("token");
+    if (access_token) sessionStorage.removeItem("token");
   },
 };
 
