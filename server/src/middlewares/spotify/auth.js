@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 import fetch from "node-fetch";
-import * as queryString from "query-string";
 import generateRandomString from "utils";
 
 const authorize = "https://accounts.spotify.com/authorize";
@@ -42,20 +41,16 @@ const postToToken = async (options, res, next) => {
     const { access_token, refresh_token } = feedback;
 
     if (access_token && refresh_token) {
-      const data = queryString.stringify({
-        access_token,
-        refresh_token,
-      });
-      res.locals.data = data;
-
+      res.locals.data = { access_token, refresh_token };
       return next();
     }
-    res.locals.error = queryString.stringify({
-      error: "invalid_token",
-    });
+
+    res.locals.error = "invalid_token";
     return next();
   } catch (error) {
-    return console.log(`postToKen error: ${error}`);
+    res.locals.error = error;
+    console.log(`postToKen error: ${error}`);
+    return next();
   }
 };
 
@@ -78,9 +73,7 @@ export const redirectToClient = (req, res, next) => {
   const options = getAuthOptions(code, headers);
 
   if (!state || state !== storedState) {
-    res.locals.error = queryString.stringify({
-      error: "cookie_mismatch",
-    });
+    res.locals.error = "cookie_mismatch";
     return next();
   }
 
