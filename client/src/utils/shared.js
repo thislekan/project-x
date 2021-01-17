@@ -1,7 +1,9 @@
 export const navigateToBackend = (route) => {
   const { REACT_APP_BACKEND_URL } = process.env;
   const condition = route.startsWith("/");
-  window.location.href = condition ? `${REACT_APP_BACKEND_URL}${route}` : `${REACT_APP_BACKEND_URL}/${route}`;
+  window.location.href = condition
+    ? `${REACT_APP_BACKEND_URL}${route}`
+    : `${REACT_APP_BACKEND_URL}/${route}`;
 };
 
 export const requestFn = async ({ url, method, body, headers }) => {

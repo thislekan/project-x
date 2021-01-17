@@ -1,10 +1,11 @@
+import React, { Suspense } from "react";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import NavBar from "../components/molecules";
 import LandingPage from "../components/pages/landingPage";
 import LoggedInUser from "../components/pages/loggedIn";
 import RestrictedPages from "./restricted";
-import ProtectedRoutes from "./protectedRoutes";
 
+const ProtectedRoutes = React.lazy(() => import("./protectedRoutes"));
 const Routes = () => (
   <BrowserRouter>
     <div>
@@ -16,9 +17,11 @@ const Routes = () => (
           component={LoggedInUser}
           exact
         />
-        <ProtectedRoutes>
-          <RestrictedPages />
-        </ProtectedRoutes>
+        <Suspense fallback={<div>This is loading...</div>}>
+          <ProtectedRoutes>
+            <RestrictedPages />
+          </ProtectedRoutes>
+        </Suspense>
       </Switch>
     </div>
   </BrowserRouter>

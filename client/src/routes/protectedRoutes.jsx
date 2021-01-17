@@ -1,8 +1,9 @@
 import { Redirect } from "react-router-dom";
+import userAuth from "../utils/userAuth";
 
-const Protected = async (props) => {
-  const {default: userAuth} = await import("../utils/userAuth");
+const Protected = (props) => {
   const { authenticate } = userAuth;
+
   if (authenticate && authenticate()) return <>{props.children}</>;
   return <Redirect to="/" />;
 };
