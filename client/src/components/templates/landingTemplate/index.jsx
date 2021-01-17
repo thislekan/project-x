@@ -6,7 +6,8 @@ const LandingTemplate = () => {
   const loginClick = async () => {
     const { navigateToBackend } = await import("../../../utils/shared");
 
-    if (!navigateToBackend) return console.log("navigate to backend does not exist");
+    if (!navigateToBackend)
+      return console.log("navigate to backend does not exist");
     return navigateToBackend("/login");
   };
 
@@ -23,7 +24,11 @@ const LandingTemplate = () => {
               <Paragraph text="POWERED BY SPOTIFY" addClass="powered" />
             </FlexRow>
 
-            <SimpleButton addClass="login-btn" content="LOG IN WITH SPOTIFY" onClick={loginClick} />
+            <SimpleButton
+              addClass="login-btn"
+              content="LOG IN WITH SPOTIFY"
+              onClick={loginClick}
+            />
           </FlexColumn>
         </section>
       </div>
