@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run lint && babel src -d dist --extensions \".js\"",
+    "build": "babel src -d dist --extensions \".js\"",
+    "build:local": "npm run lint && babel src -d dist --extensions \".js\"",
     "lint": "eslint '*/**/*.js'",
     "prettier:write": "prettier --write src/**/*.*",
     "start:dev": "babel-watch src/index.js --extensions \".js\"",
