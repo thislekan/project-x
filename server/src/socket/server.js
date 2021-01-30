@@ -1,11 +1,9 @@
-import express from "express";
 import socketIO from "socket.io";
-import http from "http";
 
+import server from "index";
+import config from "config";
 import { connected, disconnected, onEmitSomething } from "./on";
 
-const app = express();
-const server = http.createServer(app);
 const io = socketIO(server);
 
 io.on("connection", (socket) => {
@@ -16,4 +14,6 @@ io.on("connection", (socket) => {
   socket.on("disconnect", disconnected);
 });
 
-export default server;
+server.listen(config.PORT, () =>
+  console.log(`App is now live on port ${config.PORT}`)
+);
