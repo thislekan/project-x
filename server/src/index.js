@@ -3,12 +3,12 @@ import "regenerator-runtime/runtime";
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import http from "http";
 
-import config from "config";
 import routes from "routes";
-import server from "socket/server";
 
 const app = express();
+const server = http.createServer(app);
 
 app.use(cors());
 app.use(cookieParser());
@@ -20,6 +20,4 @@ app.get("/", (_req, res) =>
   })
 );
 
-server.listen(config.PORT, () =>
-  console.log(`App is now live on port ${config.PORT}`)
-);
+export default server;
