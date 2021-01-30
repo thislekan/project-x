@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "YARN_PRODUCTION=false && rm -rf dist && rm -rf node_modules && yarn install && babel src -d dist --extensions \".js\"",
-    "build:local": "npm run lint && babel src -d dist --extensions \".js\"",
+    "build:local": "babel src -d dist --extensions \".js\"",
     "lint": "eslint '*/**/*.js'",
     "prettier:write": "prettier --write src/**/*.*",
-    "start:dev": "babel-watch src/index.js --extensions \".js\"",
+    "start:dev": "babel-watch src/socket/server.js --extensions \".js\"",
     "debug": "node --inspect src/index.js"
   },
   "author": "",
