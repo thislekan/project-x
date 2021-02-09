@@ -1,30 +1,27 @@
 import React, { Suspense } from "react";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
-import NavBar from "../components/molecules";
-import LandingPage from "../components/pages/landingPage";
+import { Route, BrowserRouter, Routes } from "react-router-dom";
+import LandingPage from "../components/pages/landingPage/LandingPage";
 import LoggedInUser from "../components/pages/loggedIn";
-import RestrictedPages from "./restricted";
+import RestrictedPages from "./restricted/restricted";
 
 const ProtectedRoutes = React.lazy(() => import("./protectedRoutes"));
-const Routes = () => (
+const AppRoutes = () => (
   <BrowserRouter>
     <div>
-      <NavBar />
-      <Switch>
-        <Route path="/" component={LandingPage} exact />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
         <Route
           path="/loggedIn/:access_token/:refresh_token"
-          component={LoggedInUser}
-          exact
+          element={<LoggedInUser />}
         />
         <Suspense fallback={<div>This is loading...</div>}>
           <ProtectedRoutes>
             <RestrictedPages />
           </ProtectedRoutes>
         </Suspense>
-      </Switch>
+      </Routes>
     </div>
   </BrowserRouter>
 );
 
-export default Routes;
+export default AppRoutes;

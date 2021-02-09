@@ -1,4 +1,4 @@
-import { useParams, Redirect } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { ShouldRender } from "../../atoms/wrappers";
 
 const LoggedInUser = () => {
@@ -9,10 +9,10 @@ const LoggedInUser = () => {
   return (
     <div>
       <ShouldRender show={!!access_token}>
-        <Redirect to="/me" />
+        <Navigate to="/me" />
       </ShouldRender>
       <ShouldRender show={!access_token}>
-        <Redirect to="/" />
+        <Navigate to="/" />
       </ShouldRender>
     </div>
   );
