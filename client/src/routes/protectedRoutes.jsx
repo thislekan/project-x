@@ -7,12 +7,12 @@ const Protected = (props) => {
 
   if (authenticate && authenticate()) {
     return (
-      <div className="protected">
-        <div className="protected__wrapper">
-          <div className="protected__wrapper__sidebar">
+      <div className="dashboard">
+        <div className="dashboard__wrapper">
+          <div className="dashboard__wrapper__sidebar">
             <SideBar />
           </div>
-          <div className="protected__wrapper__page">
+          <div className="dashboard__wrapper__page">
             <div className="top-bar"></div>
             <>{props.children}</>
           </div>

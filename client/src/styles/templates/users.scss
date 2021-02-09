@@ -1,0 +1,28 @@
+.dashboard {
+  &__wrapper {
+    position: relative;
+    &__sidebar {
+      position: absolute;
+      top: -100vh;
+      transition: 1s ease-in-out;
+      left: 0;
+      height: 80vh;
+
+      &--dropdown {
+        top: 10vh;
+      }
+    }
+  }
+
+  @media screen and (min-width: 850px) {
+    &__wrapper {
+      display: grid;
+      grid-template-columns: 25% auto;
+
+      &__sidebar {
+        position: unset;
+        top: unset;
+      }
+    }
+  }
+}
