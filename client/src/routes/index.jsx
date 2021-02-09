@@ -1,24 +1,30 @@
-import React, { Suspense } from "react";
+import { Suspense, lazy } from "react";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
-import LandingPage from "../components/pages/landingPage/LandingPage";
-import LoggedInUser from "../components/pages/loggedIn";
-import RestrictedPages from "./restricted/restricted";
+import LandingPage from "../components/pages/landingPage";
+import LoggedInChecker from "../components/pages/loggedIn";
+import RestrictedPages from "./restricted";
+import NotFound from "../components/pages/404";
 
-const ProtectedRoutes = React.lazy(() => import("./protectedRoutes"));
+const ProtectedRoutes = lazy(() => import("./protectedRoutes"));
+const Suspended = () => (
+  <Suspense fallback={<div>This is loading...</div>}>
+    <ProtectedRoutes>
+      <RestrictedPages />
+    </ProtectedRoutes>
+  </Suspense>
+);
+
 const AppRoutes = () => (
   <BrowserRouter>
     <div>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route
-          path="/loggedIn/:access_token/:refresh_token"
-          element={<LoggedInUser />}
+          path="loggedIn/:access_token/:refresh_token"
+          element={<LoggedInChecker />}
         />
-        <Suspense fallback={<div>This is loading...</div>}>
-          <ProtectedRoutes>
-            <RestrictedPages />
-          </ProtectedRoutes>
-        </Suspense>
+        <Route path="users/*" element={<Suspended />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   </BrowserRouter>

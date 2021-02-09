@@ -9,7 +9,7 @@ const LoggedInUser = () => {
   return (
     <div>
       <ShouldRender show={!!access_token}>
-        <Navigate to="/me" />
+        <Navigate to="/users/me" />
       </ShouldRender>
       <ShouldRender show={!access_token}>
         <Navigate to="/" />
