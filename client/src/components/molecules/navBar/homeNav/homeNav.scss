@@ -1,0 +1,60 @@
+.topnav-content {
+  height: 5rem;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: map-get($colors, brand-black);
+
+  &__wrapper {
+    height: 100%;
+
+    a {
+      color: map-get($colors, brand-white);
+      text-decoration: none;
+    }
+
+    &__left-div,
+    &__mid-div {
+      display: flex;
+      flex-grow: 1;
+    }
+
+    &__mid-div {
+      justify-content: space-between;
+    }
+
+    &__right-div {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .topnav-content {
+    &__wrapper {
+      &__left-div,
+      &__mid-div {
+        display: unset;
+        flex-grow: unset;
+      }
+
+      &__mid-div {
+        .inspiration {
+          margin-right: 5rem;
+        }
+      }
+
+      &__right-div {
+        display: unset;
+
+        button {
+          background-color: map-get($colors, brand-green);
+          border: 1px solid map-get($colors, brand-green);
+          border-radius: 0.2rem;
+        }
+      }
+    }
+  }
+}
