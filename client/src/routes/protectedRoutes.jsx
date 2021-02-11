@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import userAuth from "../utils/userAuth";
-import SideBar from "../components/molecules/navBar/sidebar";
+import SideBar from "../components/molecules/navBar/sideNav";
 
 const Protected = (props) => {
   const { authenticate } = userAuth;
