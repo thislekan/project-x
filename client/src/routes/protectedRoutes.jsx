@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import userAuth from "../utils/userAuth";
-// import SideBar from "../components/molecules/navBar/sideBar";
+import SideBar from "../components/molecules/navBar/sideNav";
 
 const Protected = (props) => {
   const { authenticate } = userAuth;
@@ -10,8 +10,7 @@ const Protected = (props) => {
       <div className="dashboard">
         <div className="dashboard__wrapper">
           <div className="dashboard__wrapper__sidebar">
-            <p>Put sidebar here</p>
-            {/* <SideBar /> */}
+            <SideBar />
           </div>
           <div className="dashboard__wrapper__page">
             <div className="top-bar"></div>
